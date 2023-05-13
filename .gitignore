@@ -1,3 +1,5 @@
 config.py
 settings.cpython-311.pyc
 __pycache__/*
+__init__.cpython-311.pyc
+admin.cpython-311.pyc
