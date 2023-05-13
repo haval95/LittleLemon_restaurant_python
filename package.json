@@ -1,0 +1,11 @@
+{
+  "name": "littleLemon",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/haval95/LittleLemon_restaurant_python.git",
+  "author": "haval95 <havalrezan22@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "tailwindcss": "^3.3.2"
+  }
+}
