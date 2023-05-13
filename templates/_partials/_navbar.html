@@ -28,11 +28,11 @@
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="flex space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-black hover:text-green-400" -->
-                        <a href="#" class=" text-green-400 rounded-md px-3 py-2 text-sm font-medium"
+                        <a href="{% url 'home_view' %}" class=" text-green-400 rounded-md px-3 py-2 text-sm font-medium"
                             aria-current="page">Home</a>
                         <a href="#"
                             class="text-black hover:text-green-400 rounded-md px-3 py-2 text-sm font-medium">About</a>
-                        <a href="#"
+                        <a href="{% url 'menu_view' %}"
                             class="text-black hover:text-green-400 rounded-md px-3 py-2 text-sm font-medium">Menu</a>
                         <a href="#"
                             class="text-black hover:text-green-400 rounded-md px-3 py-2 text-sm font-medium">Book</a>
