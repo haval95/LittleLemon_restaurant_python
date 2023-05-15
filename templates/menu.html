@@ -1,9 +1,17 @@
 {%extends 'base.html'%}
 {%block content %}
+{% if item_found %}
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12 p-6">
-    {% include "_partials/_card.html" %}
-    {% include "_partials/_card.html" %}
-    {% include "_partials/_card.html" %}
-</div>
-
+    {% for item in items %}
+    {% include "_partials/_card.html" with item=item %}
+    {% endfor %}
+    </div>
+    {%else %}
+    
+    {% with alert="Sorry, we are not serving anything in the chosen category at the moment" title="sorry" %}
+    
+    {% include "_partials/_yellow_alert.html" with alert=alert title=title %}
+    
+    {% endwith %}
+    {%endif%}
 {% endblock content%}
