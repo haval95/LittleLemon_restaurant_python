@@ -1,5 +1,23 @@
 {%extends 'base.html'%}
 {%block content %}
+{%if categories %}
+<div class="my-10 max-w-screen-xl mx-auto px-6">
+    <div class="flex items-center justify-center space-x-6 capitalize">
+        <a href="{% url 'menu_view' %}" class="{% if not query_param %} bg-green-400 text-white rounded-xl{% else %} hover:text-green-400
+                    {% endif %} px-3 py-1 cursor-pointer">
+            all
+        </a>
+        {% for category in categories %}
+        <a href="{% url 'menu_view' %}?category={{ category.id }}" class="{% if query_param == category.id %} bg-green-400 text-white rounded-xl{% else %} hover:text-green-400
+            {% endif %} px-3 py-1 cursor-pointer">
+            {{ category.category_name }}
+        </a>
+        {% endfor %}
+
+    </div>
+</div>
+{%endif%}
+
 {% if item_found %}
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12 p-6">
     {% for item in items %}
