@@ -37,8 +37,9 @@
                     {% url 'menu_view' as menu_view %}
                            <a href="{% url 'menu_view' %}"
                              class="{% if request.path == menu_view %} text-green-400 {% endif %} rounded-md px-3 py-2 text-sm font-medium">Menu</a>
-                        <a href="#"
-                            class="{% if request.path == 'book' %} text-green-400 {% endif %} rounded-md px-3 py-2 text-sm font-medium">Book</a>
+                            {% url 'book_view' as book_view %}
+                            <a href="{% url 'book_view' %}"
+                                class="{% if request.path == 'book_view' %} text-green-400 {% endif %} rounded-md px-3 py-2 text-sm font-medium">Book</a>
                     </div>
                 </div>
             </div>
