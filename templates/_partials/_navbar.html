@@ -27,15 +27,18 @@
                 </div>
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="flex space-x-4">
-                        <!-- Current: "bg-gray-900 text-white", Default: "text-black hover:text-green-400" -->
-                        <a href="{% url 'home_view' %}" class=" text-green-400 rounded-md px-3 py-2 text-sm font-medium"
+                        {% url 'home_view' as home_url %}
+                        <a href="{% url 'home_view' %}"
+                            class="{% if request.path == home_url %} text-green-400 {% endif %} rounded-md px-3 py-2 text-sm font-medium"
                             aria-current="page">Home</a>
+                            {% url 'about_view' as about_url %}
                         <a href="{% url 'about_view' %}"
-                            class="text-black hover:text-green-400 rounded-md px-3 py-2 text-sm font-medium">About</a>
-                        <a href="{% url 'menu_view' %}"
-                            class="text-black hover:text-green-400 rounded-md px-3 py-2 text-sm font-medium">Menu</a>
+                           class="{% if request.path == about_url %} text-green-400 {% endif %} rounded-md px-3 py-2 text-sm font-medium">About</a>
+                    {% url 'menu_view' as menu_view %}
+                           <a href="{% url 'menu_view' %}"
+                             class="{% if request.path == menu_view %} text-green-400 {% endif %} rounded-md px-3 py-2 text-sm font-medium">Menu</a>
                         <a href="#"
-                            class="text-black hover:text-green-400 rounded-md px-3 py-2 text-sm font-medium">Book</a>
+                            class="{% if request.path == 'book' %} text-green-400 {% endif %} rounded-md px-3 py-2 text-sm font-medium">Book</a>
                     </div>
                 </div>
             </div>
