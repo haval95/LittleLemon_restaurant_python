@@ -1,7 +1,9 @@
 {%extends 'base.html'%}
 {%block content %}
-<div>
-    this is menu page
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12 p-6">
+    {% include "_partials/_card.html" %}
+    {% include "_partials/_card.html" %}
+    {% include "_partials/_card.html" %}
 </div>
 
 {% endblock content%}
