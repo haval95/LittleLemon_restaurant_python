@@ -1,6 +1,54 @@
 {%extends 'base.html'%}
 {%block content %}
-<div>
-    book view
-</div>
-{% endblock content%}
+<section class="bg-white dark:bg-gray-900">
+    <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center
+            text-gray-900 dark:text-white">Reserve a
+            table
+        </h2>
+        <p class="mb-8 lg:mb-16 font-light text-center text-gray-500
+            dark:text-gray-400 sm:text-xl">We're excited to
+            welcome you to our restaurant! To ensure a delightful dining
+            experience, we recommend making a
+            reservation in advance. Please fill out the form below to reserve a
+            table for your desired date and time.
+        </p>
+        <form method="post" class="space-y-8">
+            {% csrf_token %}
+            <div>
+                <label class="block mb-2 text-sm font-medium text-gray-900
+                    dark:text-gray-300" for="inline-full-name">
+                    First Name
+                </label>
+                {{form.first_name}}
+            </div>
+            <div>
+                <label class="block mb-2 text-sm font-medium text-gray-900
+                    dark:text-gray-300" for="inline-full-name">
+                    Last Name
+                </label>
+                {{form.last_name}}
+            </div>
+            <div>
+                <label class="block mb-2 text-sm font-medium text-gray-900
+                    dark:text-gray-300" for="inline-full-name">
+                    Guest Number
+                </label>
+                {{form.guest_number}}
+            </div>
+            <div>
+                <label class="block mb-2 text-sm font-medium text-gray-900
+                    dark:text-gray-300" for="inline-full-name">
+                    Comment
+                </label>
+                {{form.comment}}
+            </div>
+            <button type="submit" class="py-3 px-5 text-sm font-medium shadow-md
+                text-center text-white rounded-lg bg-green-400 sm:w-fit
+                 focus:ring-4 focus:outline-none hover:bg-green-500
+                focus:ring-green-300 dark:bg-green-600
+                dark:hover:bg-green-700 dark:focus:ring-green-600 hover:shadow-none transition-duration-300 ">Send
+            </button>
+        </form>
+    </section>
+    {% endblock content%}
