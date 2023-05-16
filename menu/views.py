@@ -16,6 +16,16 @@ def menu(request):
     "categories": categories,
     "query_param": int(query_param) if query_param and query_param.isdigit() else None,
 }
-
+    print(context["items"])
     return render(request, "menu.html", context)
     
+
+def detail(request, id):
+    queryset = Menu_Item.objects.filter(id=id).values()
+    item_found = queryset.exists()
+    context = {
+        "item": queryset[0] if item_found else None,
+        "item_found": item_found,
+    }
+    
+    return render(request, "detail.html", context)
