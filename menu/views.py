@@ -16,7 +16,7 @@ def menu(request):
     "categories": categories,
     "query_param": int(query_param) if query_param and query_param.isdigit() else None,
 }
-    print(context["items"])
+
     return render(request, "menu.html", context)
     
 

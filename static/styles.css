@@ -3,9 +3,6 @@
 @import 'tailwindcss/utilities';
 
 
-.navbg{
-    background-color: #FCF4E0;
-}
 
 .mybg {
   background-image: url('./imgs/home.png');

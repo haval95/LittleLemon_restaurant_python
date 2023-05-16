@@ -7,13 +7,13 @@ const mobileMenu = document.getElementById('mobile-menu');
         const navbar = document.querySelector("nav");
 
         window.addEventListener("scroll", () => {
-            if (window.scrollY > 100) {
-                navbar.classList.remove("navbg");
+            if (window.scrollY > 25) {
+                navbar.classList.remove("bg-transparent");
                 navbar.classList.add("bg-white");
                 navbar.classList.add("shadow");
             } else {
                 navbar.classList.remove("bg-white");
                 navbar.classList.remove("shadow");
-                navbar.classList.add("navbg");
+                navbar.classList.add("bg-transparent");
             }
         });
