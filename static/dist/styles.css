@@ -17,6 +17,7 @@ Use a better box model (opinionated).
   box-sizing: border-box;
 }
 
+
 /**
 Use a more readable tab size (opinionated).
 */
@@ -27,7 +28,9 @@ html {
      tab-size: 4;
 }
 
-
+body{
+  font-family: 'IBM Plex Mono', monospace !important;
+}
 
 /**
 1. Correct the line height in all browsers.

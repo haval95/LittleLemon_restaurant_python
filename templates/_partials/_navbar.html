@@ -1,6 +1,6 @@
 {% load static %}
 
-<nav class=" fixed top-0 my-0 bg-white sm:bg-transparent w-full z-50">
+<nav class=" fixed top-0 my-0 bg-transparent w-full z-50">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 container ">
         <div class="relative flex py-2 items-center justify-between">
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -82,7 +82,7 @@
             </div>
 
             <!-- Mobile menu, show/hide based on menu state. -->
-            <div class="sm:hidden hidden bg-white" id="mobile-menu">
+            <div class="sm:hidden hidden bg-white shadow" id="mobile-menu">
                 <div class="space-y-1 px-2 pb-3 pt-2">
                     {% url 'home_view' as home_url %}
                     <a href="{% url 'home_view' %}"

@@ -14,6 +14,6 @@ const mobileMenu = document.getElementById('mobile-menu');
             } else {
                 navbar.classList.remove("bg-white");
                 navbar.classList.remove("shadow");
-                navbar.classList.add("bg-white sm:bg-transparent");
+                navbar.classList.add("bg-white bg-transparent");
             }
         });
