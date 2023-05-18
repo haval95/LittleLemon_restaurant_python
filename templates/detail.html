@@ -1,5 +1,11 @@
 {%extends 'base.html'%}
 {% load static %}
+{% block page_title %}
+    {% with "Menu" as page_name %}
+        {{ page_name }}
+    {% endwith %}
+{% endblock %} 
+
 {%block content %}
 {% if item_found %}
 <section class="text-gray-700 body-font overflow-hidden bg-white">

@@ -1,4 +1,12 @@
 {%extends 'base.html'%}
+
+{% block page_title %}
+    {% with "Book" as page_name %}
+        {{ page_name }}
+    {% endwith %}
+{% endblock %} 
+
+
 {%block content %}
 <section class="bg-white dark:bg-gray-900 mt-16">
     <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">

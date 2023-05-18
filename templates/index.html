@@ -1,4 +1,10 @@
 {%extends 'base.html'%}
+{% block page_title %}
+    {% with "Home" as page_name %}
+        {{ page_name }}
+    {% endwith %}
+{% endblock %} 
+
 {%block content %}
 {% include "_partials/_header.html" %}
 {% include "_partials/_whyus.html" %}

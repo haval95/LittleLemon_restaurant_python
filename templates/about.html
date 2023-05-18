@@ -1,5 +1,9 @@
 {%extends 'base.html'%}
-
+{% block page_title %}
+    {% with "About" as page_name %}
+        {{ page_name }}
+    {% endwith %}
+{% endblock %}
 {%block content %}
 
 {% include '_partials/_whyus.html'%}

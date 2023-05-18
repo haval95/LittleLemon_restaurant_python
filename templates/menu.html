@@ -1,4 +1,10 @@
 {%extends 'base.html'%}
+{% block page_title %}
+    {% with "Menu" as page_name %}
+        {{ page_name }}
+    {% endwith %}
+{% endblock %} 
+
 {%block content %}
 {%if categories %}
 <div class="my-10 max-w-screen-xl mx-auto px-6 mt-28">
