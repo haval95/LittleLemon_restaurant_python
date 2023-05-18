@@ -7,7 +7,16 @@
 509018/arrow-left-circle.svg
 {%block content %}
 {% if categories %}
-<div class="my-10 max-w-screen-xl mx-auto px-6 mt-28 relative">
+<style>
+  .sticky-container {
+    position: sticky;
+    top: 4rem;
+   
+    background-color: white;
+  }
+</style>
+<div class="sticky-container z-50 ">
+<div class="my-10 max-w-screen-2xl mx-auto px-6 mt-28 relative border p-1">
  
         <button class="absolute sm:hidden top-1/3 left-0 text-gray-500 hover:text-gray-700 focus:outline-none bg-white rounded-3xl p-1 shadow" onclick="document.getElementById('scroll-container').scrollLeft -= 100">
             <img class="h-5 w-5" src="https://www.svgrepo.com/show/509018/arrow-left-circle.svg" alt="Left Arrow">
@@ -16,7 +25,7 @@
             <img class="h-5 w-5" src="https://www.svgrepo.com/show/509208/right.svg" alt="Right Arrow">
         </button>
 
-    <div class="flex items-center justify-center space-x-6 capitalize overflow-x-auto border-b pb-2" id="scroll-container">
+    <div class="flex items-center justify-center space-x-6 capitalize overflow-x-auto " id="scroll-container">
         <a href="{% url 'menu_view' %}" class="{% if not query_param %} bg-green-400 text-white rounded-xl{% else %} hover:text-green-400
                     {% endif %} px-3 py-1 cursor-pointer">
             all
@@ -29,6 +38,8 @@
         {% endfor %}
     </div>
 </div>
+</div>
+
 {% endif %}
 
 
