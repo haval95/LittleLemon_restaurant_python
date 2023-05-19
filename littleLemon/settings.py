@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "mainapp",
     "menu",
     "book",
+    "order",
     
 ]
 
