@@ -1,0 +1,114 @@
+{%extends "base.html"%}
+{% load static %}
+{% block page_title %}
+{% with "Order" as page_name %}
+{{ page_name }}
+{% endwith %}
+{% endblock %}
+
+{%block content%}
+<section class="mybg1 py-20 text-center grid justify-center ">
+    <div class="grid  max-w-2xl capitalize   glass m-2 shadow ">
+        {% for key, value in request.session.cart.items %}
+        <div class=" grid grid-cols-5  justify-content-center  border-b  max-h-40 ">
+            <div class=" col-span-2  h-40 rounded-l-lg">
+                <img
+                    src="{{ value.image }}"
+                    class=" h-40 w-full   object-cover rounded-l-lg border-b"
+                    alt
+                    />
+            </div>
+            <div class="col-span-3  grid   rounded  px-1 py-1 gap-1 ml-1">
+                <div class="grid grid-cols-2">
+                    <p> {{value.name}}</p>
+                    <h3> {{value.price }} </h3>
+                </div>
+
+                <div class="grid grid-cols-3 align-center justify-center">
+                    <button
+                        type="button"
+                        class="rounded-full bg-green-400 text-white justify-self-end w-6 h-6 cruser-pointer">
+                        -
+                    </button>
+                    <h3>{{value.quantity}}</h3>
+                    <button
+                        type="button"
+                        class="rounded-full bg-green-400 text-white justify-self-start w-6 h-6 cruser-pointer">
+                        +
+                    </button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="flex flex-col items-center mb-3 space-y-2 py-4">
+            <span>Total Price: {{request.session.total_price}}</span>
+             <a href="#"
+            class=" add-to-cart-btn animate-pulse bg-green-400 text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105"
+            data-item-id="{{ item.id }}">Order</a>
+        </div>
+    </div>
+    {%if item_found%}
+
+    {%for order in orders %}
+    <div class="grid  max-w-2xl capitalize   glass m-2 shadow">
+        <div class=" px-4 border-b  rounded p-4 bg-yellow-500 ">
+            <span class="font-bold text-white ">
+                Table: {{order.table_number}}
+            </span>
+            <div class>
+                {% if order.is_taken %}
+
+                <span
+                    class="inline-flex items-center bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+                    <span
+                        class="w-2 h-2 mr-1 bg-green-500 rounded-full animate-ping "></span>
+                    <span class="pl-2"> In Proccess..</span>
+                </span>
+                {% else %}
+
+                <span
+                    class="inline-flex items-center bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">
+                    <span
+                        class="w-2 h-2 mr-1 bg-red-500 rounded-full animate-ping "></span>
+                    <span class="pl-2">Not Taken Yet!</span>
+                </span>
+                {% endif %}
+            </div>
+        </div>
+        {%for item in order.ord_items.all %}
+        <div class=" grid grid-cols-5  justify-content-center  border-b ">
+            <div class=" col-span-2  h-40 rounded-l-lg">
+                <img
+                    src="/media/{{ item.image }}"
+                    class=" h-40 w-full   object-cover rounded-l-lg"
+                    alt
+                    />
+            </div>
+            <div class="col-span-3  grid   rounded  px-1 py-1 gap-1 ml-1">
+                <div class="grid grid-cols-2">
+                    <p> {{item.item_name}}</p>
+                    <h3> {{item.item_price}}</h3>
+                </div>
+
+                <div class="grid grid-cols-3 align-center justify-center">
+                    <button
+                        type="button"
+                        class="rounded-full bg-green-400 text-white justify-self-end w-6 h-6 cruser-pointer">
+                        -
+                    </button>
+                    <h3>10</h3>
+                    <button
+                        type="button"
+                        class="rounded-full bg-green-400 text-white justify-self-start w-6 h-6 cruser-pointer">
+                        +
+                    </button>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+    {%endfor%}
+    {%endif%}
+</section>
+
+{%endblock content%}

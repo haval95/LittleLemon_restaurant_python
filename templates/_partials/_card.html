@@ -1,19 +1,23 @@
 {% load static %}
 {%block content %}
-<a  href="{% url 'detail_view' item.id %}"
-    class=" hover:shadow-lg shadow bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative">
-    <span
-        class="bg-green-100 border border-green-500 rounded-full text-primary text-sm poppins px-4 py-1 inline-block mb-4 capitalize ">{{item.category_id}}</span>
-<img class="w-64 h-64 object-contain mx-auto transform transition duration-300 hover:scale-105"
-    src="{{ item.image.url }}" alt="">
+<div
+    class=" shadow bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 px-4 pb-4 pt-2 rounded-lg relative">
+  <span
+        class="bg-green-100 border border-green-500 rounded-full text-primary text-sm poppins px-4 py-1 inline-block mb-4 capitalize ">{{item.item_price}} IQD</span>
+    <img
+        class="w-64 h-64 object-contain mx-auto transform transition duration-300 hover:scale-105"
+        src="{{ item.image.url }}" alt>
 
-    <div class="flex flex-col items-center my-3 space-y-2">
-        <h1 class="text-gray-900 poppins text-lg capitalize">{{item.item_name}}</h1>
-        <p class="text-gray-500 poppins text-sm text-center">{{item.item_ingridiants}}</p>
-        <h2 class="text-gray-900 poppins text-2xl font-bold"> {{item.item_price }} IQD</h2>
-        <!-- <button
-            class="bg-green-400 text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105"
-            type="submit">Order Now</button> -->
+    <div class="flex flex-col items-center mb-3 space-y-2">
+       <span class="flex justify-around  w-full pb-1" >
+         <h1 class="text-gray-900 poppins text-2xl font-bold">{{item.item_name}}</h1>   
+       </span>
+        <p class="text-gray-500 poppins text-sm text-center h-32 overflow-auto">{{item.item_ingridiants| slice:":250"}}</p>
+            <a href="{% url 'add_to_cart_view' item.id %}"
+            class=" add-to-cart-btn bg-green-400 text-white px-8 py-2 focus:outline-none poppins rounded-full mt-24 transform transition duration-300 hover:scale-105"
+            data-item-id="{{ item.id }}">Add to Cart</a>
     </div>
-</a>
+</div>
+
+
 {% endblock content%}

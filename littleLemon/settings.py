@@ -31,6 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+SESSION_COOKIE_SECURE = True
 
 # Application definition
 
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     "menu",
     "book",
     "order",
+
     
 ]
 
@@ -55,7 +57,7 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",  
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
     
 ]
 
