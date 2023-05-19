@@ -30,7 +30,7 @@
 </style>
 <div class="sticky-container z-30">
   <div class="my-10 max-w-screen-sm sm:max-w-screen-2xl mx-auto px-6 mt-28 relative border p-1 overflow-x-auto">
-    <div class="flex items-center justify-center space-x-2">
+    <div class="grid grid-flow-col items-center justify-center space-x-2">
       <button class="inline-flex sm:hidden items-center justify-center w-8 h-8 text-gray-500 hover:text-gray-700 focus:outline-none bg-white rounded-full shadow" onclick="document.getElementById('scroll-container').scrollLeft -= 100">
         <img class="h-4 w-4" src="https://www.svgrepo.com/show/509018/arrow-left-circle.svg" alt="Left Arrow">
       </button>
@@ -42,7 +42,7 @@
           {% for category in categories %}
           <a href="{% url 'menu_view' %}?category={{ category.id }}" class="{% if query_param == category.id %} bg-green-400 text-white rounded-xl{% else %} hover:text-green-400 {% endif %} px-3 py-1 cursor-pointer">
             {{ category.category_name }}
-          </a>
+          </a> 
           {% endfor %}
         </div>
       </div>
