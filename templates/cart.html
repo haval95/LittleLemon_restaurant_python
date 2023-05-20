@@ -1,0 +1,85 @@
+{%extends "base.html"%}
+{% load static %}
+{% block page_title %}
+{% with "Cart" as page_name %}
+{{ page_name }}
+{% endwith %}
+{% endblock %}
+
+{%block content%}
+<section class="mybg1 py-20 text-center grid justify-center ">
+
+    <div class="grid  max-w-2xl capitalize   glass m-2 shadow ">
+        {% for key, value in request.session.cart.items %}
+        <div
+            class=" grid grid-cols-5  justify-content-center  border-b  max-h-40 ">
+            <div class=" col-span-2  h-40 rounded-l-lg">
+                <img
+                    src="{{ value.image }}"
+                    class=" h-40 w-full   object-cover rounded-l-lg border-b"
+                    alt
+                    />
+            </div>
+            <div
+                class="col-span-3  grid   rounded  px-1 py-1 gap-1 ml-1 align-items-center">
+                <div class="grid grid-cols-2 px-4">
+                    <div class="flex items-center justify-start">
+                        <p>{{ value.name }}</p>
+                    </div>
+                    <div class="flex items-center justify-end">
+                        <h3>{{ value.price }} IQD</h3>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 align-center justify-center">
+                    <form method="POST"
+                        action="{% url 'add_to_cart_view' key %}"
+                        class="col-span-1">
+                        {%csrf_token%}
+                        <button
+                            type="submit"
+                            class="rounded-full bg-green-400 text-white justify-self-end w-6 h-6 cruser-pointer">
+                            -
+                        </button>
+                    </form>
+                    <h3 class="col-span-1">{{value.quantity}}</h3>
+                    <a
+                        href="{% url 'add_to_cart_view' key %}"
+                        class="rounded-full bg-green-400 text-white  w-6 h-6 cruser-pointer col-span-1 justify-self-center">
+                        +
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {%if request.session.total_price %}
+        <div class="flex flex-col items-center mb-3 space-y-2 py-4">
+            <span>Total Price: {{request.session.total_price}}</span>
+            <form method="POST"
+                action="{% url 'order_view' %}"
+                class="flex-row  items-center justify-center space-y-3"
+              >
+                {% csrf_token %}
+                
+                <div>                     
+                    <label for="table-number" class="mr-2">Table Number:</label>
+                   <input name="table-number" id="table-number" type="number" placeholder="Table Number" class="border bg-yellow-50 px-2 py-1 rounded focus:outline-none focus:border-blue-500" value="{% if request.GET.table %}{{ request.GET.table }}{% else %}1{% endif %}">
+
+                </div>
+                <button type="submit"
+                    class="add-to-cart-btn animate-pulse bg-green-400 text-white px-8 py-2 focus:outline-none  rounded-full mt-24 transform transition duration-300 hover:scale-105"
+                    data-item-id="{{ item.id }}">Order</button>
+            </form>
+        </div>
+        {%else%}
+            {% with alert="You Don't have any items in the cart! Go to Menu and add some Items.." title="Uh Oh" %}
+
+            {% include "_partials/_yellow_alert.html" with alert=alert title=title%}
+
+            {% endwith %}
+        {%endif%}
+    </div>
+
+</section>
+
+{%endblock content%}
