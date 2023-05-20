@@ -13,11 +13,12 @@
 }
 
 .mybg1 {
+  
   background-image: url('./imgs/home.png');
   background-repeat: repeat;
   background-position: center;
-  background-size: cover;
- 
+  background-size: cover cover;
+ min-height: 90vh;
 }
 
 

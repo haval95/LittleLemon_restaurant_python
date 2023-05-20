@@ -6,6 +6,7 @@
 {% endblock %} 
 
 {%block content %}
+
 {% if categories %}
 <style>
   .sticky-container {
@@ -36,11 +37,11 @@
       </button>
       <div class="flex-1 overflow-x-auto" id="scroll-container">
         <div class="flex items-center space-x-6 capitalize">
-          <a href="{% url 'menu_view' %}" class="{% if not query_param %} bg-green-400 text-white rounded-xl{% else %} hover:text-green-400 {% endif %} px-3 py-1 cursor-pointer">
+          <a href="{% url 'menu_view' %}?table={% if request.GET.table %}{{ request.GET.table }}{% else %}1{% endif %}" class="{% if not query_param %} bg-green-400 text-white rounded-xl{% else %} hover:text-green-400 {% endif %} px-3 py-1 cursor-pointer">
             all
           </a>
           {% for category in categories %}
-          <a href="{% url 'menu_view' %}?category={{ category.id }}" class="{% if query_param == category.id %} bg-green-400 text-white rounded-xl{% else %} hover:text-green-400 {% endif %} px-3 py-1 cursor-pointer">
+          <a href="{% url 'menu_view' %}?table={% if request.GET.table %}{{ request.GET.table }}{% else %}1{% endif %}&category={{ category.id }}" class="{% if query_param == category.id %} bg-green-400 text-white rounded-xl{% else %} hover:text-green-400 {% endif %} px-3 py-1 cursor-pointer">
             {{ category.category_name }}
           </a> 
           {% endfor %}
@@ -70,4 +71,5 @@
     
     {% endwith %}
     {%endif%}
+
 {% endblock content%}

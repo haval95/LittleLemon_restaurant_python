@@ -1,7 +1,7 @@
 <div class="flex justify-center items-center h-96">
     <div class="w-1/2 h-1/2  flex justify-center items-center">
         <div id="alert-additional-content-2 "
-            class="p-4 mb-4 text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-400 dark:border-yellow-800"
+            class="p-4 mb-4 text-yellow-600 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-400 dark:border-yellow-800"
             role="alert">
             <div class="flex items-center">
                 <svg aria-hidden="true" class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"
@@ -16,9 +16,9 @@
             <div class="mt-2 mb-4 text-sm title">
                 {{alert}}
             </div>
-            <div class="flex">
-                <a type="button" href="{%url 'menu_view'%}"
-                    class="text-white bg-yellow-800 hover:bg-yellow-900 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-xs px-3 py-1.5 mr-2 text-center inline-flex items-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
+            <div class="flex justify-center">
+                <a type="button" href="{%url 'menu_view'%}?table={% if request.GET.table %}{{ request.GET.table }}{% else %}1{% endif %}"
+                    class="text-white  bg-yellow-500 hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-xs px-3 py-1.5 mr-2 text-center inline-flex items-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
                     <svg aria-hidden="true" class="-ml-0.5 mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
